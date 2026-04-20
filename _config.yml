@@ -1,0 +1,46 @@
+name: llgsjsm
+author: llgsjsm
+description: vuln research & ai slopping
+
+avatar:
+
+footer-links:
+  email:
+  github: llgsjsm
+  twitter:
+  rss: rss
+
+disqus:
+google_analytics:
+
+url: https://llgsjsm.github.io
+baseurl: ""
+
+permalink: /:title/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+sass:
+  style: :compressed
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+include: ['_pages']
+
+paginate: 6
+paginate_path: /page:num/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME

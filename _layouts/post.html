@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<article class="post detailed">
+  <h1>{{ page.title }}</h1>
+
+  <div>
+    <p class="post_date">{{ page.date | date: "%B %e, %Y" }}</p>
+    {% if page.categories.size > 0 %}
+    <div class="post-tags">
+      {% for category in page.categories %}
+        <span class="tag-label">{{ category }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+</article>

@@ -1,0 +1,647 @@
+---
+---
+
+@import "reset";
+@import "variables";
+
+/**************/
+/* BASE RULES */
+/**************/
+
+html {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  background: $bg;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: $text;
+  line-height: 1.75;
+  font-weight: 400;
+  font-size: 17px;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 0 1.5rem;
+  width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: $text;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.5em 0 0.75em;
+  padding: 0;
+
+  @include mobile {
+    line-height: 1.4;
+  }
+}
+
+h1 {
+  font-size: 1.75rem;
+  a { color: inherit; }
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+h3 {
+  font-size: 1.15rem;
+}
+
+h4 {
+  font-size: 1rem;
+  color: $text-muted;
+}
+
+p {
+  margin: 1em 0;
+}
+
+a {
+  color: $accent;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+
+  &:hover, &:active {
+    color: $accent-hover;
+  }
+}
+
+ul, ol {
+  margin: 1em 0;
+  padding-left: 1.75rem;
+}
+
+ul { list-style-type: disc; }
+ol { list-style-type: decimal; }
+ol ul, ul ol, ul ul, ol ol { margin: 0; }
+ul ul, ol ul { list-style-type: circle; }
+
+em, i { font-style: italic; }
+strong, b { font-weight: 600; }
+
+img {
+  max-width: 100%;
+  border-radius: 6px;
+}
+
+p > img {
+  display: block;
+  margin: 1.5rem auto;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $border;
+  margin: 2.5rem 0;
+}
+
+// Tables
+table {
+  padding: 0;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table tr {
+  border-top: 1px solid $border;
+  background-color: $bg;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n) {
+  background-color: $bg-secondary;
+}
+
+table tr th {
+  font-weight: 600;
+  border: 1px solid $border;
+  text-align: left;
+  padding: 8px 13px;
+  color: $text;
+}
+
+table tr td {
+  border: 1px solid $border;
+  text-align: left;
+  padding: 8px 13px;
+}
+
+// Selection
+::selection {
+  color: $bg;
+  background: $accent;
+}
+
+::-moz-selection {
+  color: $bg;
+  background: $accent;
+}
+
+// Clearfix
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+/*********************/
+/* LAYOUT            */
+/*********************/
+
+// Masthead
+.wrapper-masthead {
+  margin-bottom: 0;
+}
+
+.masthead {
+  padding: 1.25rem 0 1rem;
+  border-bottom: 1px solid $border;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.site-avatar {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+
+  @include mobile {
+    float: none;
+    display: block;
+    margin: 0 auto 10px;
+  }
+
+  img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+}
+
+.site-info {
+  float: left;
+
+  @include mobile {
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+.site-name {
+  margin: 0;
+  color: $text;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: -0.3px;
+  text-align: left;
+
+  @include mobile {
+    text-align: center;
+  }
+}
+
+.site-description {
+  margin: -2px 0 0 0;
+  color: $text-muted;
+  font-size: 0.85rem;
+
+  @include mobile {
+    margin: 4px 0;
+  }
+}
+
+nav {
+  float: right;
+  margin-top: 14px;
+  font-size: 0.9rem;
+
+  @include mobile {
+    float: none;
+    margin-top: 12px;
+    display: block;
+  }
+
+  a {
+    margin-left: 24px;
+    color: $text-muted;
+    font-weight: 400;
+    letter-spacing: 0;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $accent;
+    }
+
+    @include mobile {
+      margin: 0 10px;
+    }
+  }
+}
+
+// Main content
+.wrapper-container {
+  min-height: 100%;
+  position: relative;
+}
+
+.wrapper-main {
+  padding-bottom: 100px;
+}
+
+// Posts list
+.posts > .post {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid $border;
+}
+
+.posts > .post:last-child {
+  border-bottom: none;
+}
+
+.post-image {
+  display: block;
+  margin-top: 1rem;
+}
+
+
+.post {
+  h1 {
+    font-weight: 600;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+    margin-bottom: 0;
+  }
+
+  blockquote {
+    margin: 1.5em 0;
+    border-left: 3px solid $accent;
+    padding: 0.5em 1.25em;
+    color: $text-muted;
+    font-size: 1rem;
+    font-style: italic;
+    background-color: $surface;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .entry {
+    color: $text-muted;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 0.5rem;
+  }
+
+  .read-more {
+    display: inline-block;
+    margin-top: 0.75rem;
+    font-size: 0.85rem;
+    color: $accent;
+    font-weight: 500;
+
+    &:hover {
+      color: $accent-hover;
+    }
+  }
+
+  .comments {
+    margin-top: 2rem;
+  }
+}
+
+// Post detail
+.post.detailed {
+  .entry {
+    color: $text;
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+}
+
+.author_title {
+  color: $text-muted;
+  font-size: 0.85rem;
+  margin: 0.25rem 0;
+}
+
+.post_date {
+  color: $text-muted;
+  font-size: 0.85rem;
+}
+
+.post-tags {
+  margin-top: 0.75rem;
+}
+
+.post-tags a, .post-tags .tag-label {
+  font-size: 0.8rem;
+  padding: 3px 12px;
+  border: none;
+  background-color: $surface;
+  border-radius: 20px;
+  color: $accent;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.post-tags a {
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: $border;
+  }
+}
+
+// Share box
+.share-box {
+  color: $text-muted;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+// Search
+#search-container {
+  margin: 0;
+}
+
+#search-input {
+  width: 100%;
+  padding: 10px 16px;
+  margin: 0.75rem 0 0;
+  display: block;
+  border: 1px solid $border;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: $surface;
+  color: $text;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: $accent;
+  }
+}
+
+// Filter tags
+.filter-tags {
+  margin-top: 0.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.filter-tag {
+  font-size: 0.8rem;
+  padding: 3px 12px;
+  border: 1px solid $border;
+  border-radius: 20px;
+  color: $text-muted;
+  background: transparent;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $accent;
+    border-color: $accent;
+  }
+
+  &.active {
+    color: $bg;
+    background: $accent;
+    border-color: $accent;
+  }
+}
+
+// Pagination
+.pagination {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.pagination a, .pagination span {
+  padding: 8px 16px;
+  border: 1px solid $border;
+  margin: 0 2px;
+  background-color: $bg;
+  display: inline-block;
+  border-radius: 6px;
+  color: $text-muted;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.pagination a {
+  &:hover {
+    background-color: $surface;
+    color: $accent;
+    border-color: $accent;
+  }
+}
+
+.pagination span {
+  color: $text-dim;
+}
+
+// Footer
+.wrapper-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid $border;
+  background-color: $bg;
+}
+
+footer {
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+// Inline code
+.highlighter-rouge {
+  background-color: $surface;
+  color: $accent;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
+
+// Code blocks
+.highlight {
+  background-color: #1c1916;
+  padding: 1.25rem;
+  overflow: auto;
+  font-size: 0.88rem;
+  border-radius: 8px;
+  border: 1px solid $border;
+  margin: 1.5rem 0;
+}
+
+code {
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Consolas', monospace;
+  color: $text;
+}
+
+// Remove the colored top bar from Reverie
+body:after {
+  display: none;
+}
+
+#bar {
+  display: none;
+}
+
+// SVG icons in footer
+.svg-icon {
+  display: inline-block;
+  margin: 0 8px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: $text-dim;
+    transition: fill 0.2s ease;
+
+    &:hover {
+      fill: $accent;
+    }
+  }
+}
+
+// Page layout
+.page {
+  h1 {
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+}
+
+// About page
+.about-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 10px;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.about-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @include mobile {
+    width: 100%;
+    border-top: 1px solid $border;
+    padding-top: 1rem;
+  }
+}
+
+.about-stat {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-size: 0.85rem;
+}
+
+.about-stat-label {
+  color: $text-dim;
+  min-width: 70px;
+  text-align: right;
+}
+
+.about-stat-value {
+  color: $text;
+}
+
+.about-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid $border;
+  flex-shrink: 0;
+}
+
+.about-link {
+  font-size: 0.8rem;
+  padding: 3px 12px;
+  border: 1px solid $border;
+  border-radius: 20px;
+  color: $text-muted;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $accent;
+    border-color: $accent;
+  }
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin: 1rem 0 1.5rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-card {
+  background: $surface;
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+
+  strong {
+    color: $accent;
+    font-size: 0.95rem;
+  }
+
+  p {
+    color: $text-muted;
+    font-size: 0.85rem;
+    margin: 0.3rem 0 0;
+    line-height: 1.5;
+  }
+}
+
+@import "highlights";
+@import "svg-icons";

@@ -1,0 +1,43 @@
+
+//
+// VARIABLES
+//
+
+// Claude-ish dark palette
+$accent: #da7756;
+$accent-hover: #e8956e;
+
+// Backgrounds
+$bg: #1a1714;
+$bg-secondary: #221f1b;
+$surface: #2a2520;
+
+// Text
+$text: #e8e0d5;
+$text-muted: #9e958a;
+$text-dim: #6e665c;
+
+// Borders
+$border: #3a342e;
+$border-light: #2e2924;
+
+// Legacy mappings for Reverie compatibility
+$blue: $accent;
+$black: #000;
+$darkerGray: $text;
+$darkGray: $text;
+$gray: $text-muted;
+$lightGray: $border;
+$white: $text;
+
+// Font stacks
+$helvetica: Helvetica, Arial, sans-serif;
+$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$georgia: Georgia, serif;
+
+// Mobile breakpoints
+@mixin mobile {
+  @media screen and (max-width: 640px) {
+    @content;
+  }
+}
