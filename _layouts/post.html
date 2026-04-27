@@ -19,4 +19,13 @@ layout: default
   <div class="entry">
     {{ content }}
   </div>
+
+  <script>
+    document.querySelectorAll('.entry table').forEach(function(t) {
+      var w = document.createElement('div');
+      w.className = 'table-wrap';
+      t.parentNode.insertBefore(w, t);
+      w.appendChild(t);
+    });
+  </script>
 </article>
